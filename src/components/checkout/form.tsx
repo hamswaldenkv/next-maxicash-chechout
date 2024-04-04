@@ -92,7 +92,7 @@ const CheckoutForm = () => {
 
         <Form {...form}>
           <form
-            action=""
+            id="checkout-form"
             onSubmit={form.handleSubmit(onSubmit)}
             className="border shadow-sm w-[90%] md:w-[80%] xl:w-[60%] min-h-[40rem] bg-white p-12 flex flex-col justify-between items-center"
           >
