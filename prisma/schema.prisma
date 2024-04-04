@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model CheckoutSession {
+  id            String  @id @default(uuid()) @db.Uuid
+  user_id       String?
+  price_id      String? @db.Uuid
+  type          String  @default("maxicash")
+  status        String  @default("created")
+  reference     String
+  amount        Float
+  currency      String
+  metadata      String? @db.Text
+  product_id    String?
+  product_kind  String?
+  product_name  String?
+  product_image String?
+  api_request   String? @db.Text
+  api_response  String? @db.Text
+  created_at    Int
+  updated_at    Int?
+  deleted_at    Int?
+}
